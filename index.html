@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chenyang 的个人网站</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #111827;
+            --gray: #6b7280;
+            --light: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            background: var(--dark);
+            color: #fff;
+            padding: 14px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #93c5fd;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #fff;
+            text-align: center;
+            padding: 90px 24px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 14px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 10px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #e5e7eb;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-of-type(even) {
+            background: var(--light);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #9ca3af;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <strong>chenyang 的个人网站</strong>
+            <div>
+                <a href="#about">关于我</a>
+                <a href="#skills">我的技能</a>
+                <a href="#contact">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>你好，我是 chenyang</h1>
+        <p>河南理工大学研究生 · 正在学习搭建和部署网站</p>
+        <a class="btn" href="#about">了解更多</a>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>关于我</h2>
+            <p class="center">
+                我是一名网站新手，正在学习如何搭建和部署网站，
+                是一名来自河南理工大学的研究生。
+                希望未来能够超越自我，实现人生价值。
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>我的技能</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>HTML</h3>
+                    <p>网页的骨架，我正在学习中</p>
+                </div>
+                <div class="card">
+                    <h3>CSS</h3>
+                    <p>让网页变得好看</p>
+                </div>
+                <div class="card">
+                    <h3>部署网站</h3>
+                    <p>正在学习把网站发布到互联网上</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>联系我</h2>
+            <p class="center">邮箱：18337393570**@163.com</p>
+            <!-- 注意：上面邮箱里的 ** 是占位，发布前请把 ** 换成你邮箱真实的字符；如果不想公开邮箱，可以删掉这一行 -->
+            <p class="center">GitHub：<a href="https://github.com/chenyangsu123" style="color: var(--primary);">chenyangsu123</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 chenyang · 我的第一个网站</p>
+    </footer>
+
+</body>
+</html>
