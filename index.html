@@ -104,6 +104,106 @@
             margin-top: 12px;
         }
 
+        /* 开场动画 */
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--sky1) 0%, var(--sky2) 55%, var(--sky3) 100%);
+            color: var(--hero-text);
+            text-align: center;
+            cursor: pointer;
+            animation: introLife 2.6s ease forwards;
+        }
+
+        @keyframes introLife {
+            0% {
+                opacity: 1;
+            }
+            78%,
+            88% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        .intro-inner {
+            padding: 0 24px;
+            animation: introRise 0.8s ease both;
+        }
+
+        @keyframes introRise {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .intro-emoji {
+            font-size: 62px;
+            line-height: 1;
+            display: inline-block;
+            animation: introBounce 0.8s ease-in-out 0.35s 2;
+        }
+
+        @keyframes introBounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-16px);
+            }
+        }
+
+        .intro-title {
+            font-size: 40px;
+            letter-spacing: 2px;
+            margin: 12px 0 6px;
+            animation: introRise 0.7s ease 0.15s both;
+        }
+
+        .intro-sub {
+            color: var(--hero-muted);
+            animation: introRise 0.6s ease 0.4s both;
+        }
+
+        .intro-bar {
+            width: 200px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 999px;
+            overflow: hidden;
+            margin: 26px auto 0;
+            animation: introRise 0.5s ease 0.55s both;
+        }
+
+        .intro-bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--primary);
+            border-radius: 999px;
+            animation: introLoad 1.6s ease 0.4s forwards;
+        }
+
+        @keyframes introLoad {
+            to {
+                width: 100%;
+            }
+        }
+
         /* 顶部导航 */
         nav {
             position: sticky;
@@ -521,6 +621,138 @@
             margin-top: 22px;
         }
 
+        /* 材料人工具箱 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .link-emoji {
+            font-size: 30px;
+            flex-shrink: 0;
+        }
+
+        .link-card h3 {
+            font-size: 15px;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+
+        .link-card p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+            margin-top: 34px;
+        }
+
+        .tool-card {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .tool-card h3 {
+            font-size: 17px;
+            margin-bottom: 4px;
+            color: var(--primary);
+        }
+
+        .tool-desc {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .calc-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .calc-row input {
+            flex: 1 1 120px;
+            min-width: 0;
+            padding: 9px 12px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--primary-soft);
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .calc-row select {
+            padding: 8px 10px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 14px;
+            max-width: 170px;
+        }
+
+        .calc-result {
+            background: var(--primary-soft);
+            border: 1px dashed var(--line);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 15px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            word-break: break-all;
+        }
+
+        .calc-result strong {
+            color: var(--primary);
+            font-size: 17px;
+        }
+
+        .swap-btn {
+            margin-top: 10px;
+            padding: 7px 16px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: transparent;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .swap-btn:hover {
+            border-color: var(--primary);
+        }
+
         /* 联系我 */
         .contact-card {
             max-width: 520px;
@@ -620,10 +852,24 @@
             .sticker {
                 width: 64px;
             }
+
+            .intro-title {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- 开场动画：打开网站时先播放 2 秒左右，点一下可跳过 -->
+    <div id="intro">
+        <div class="intro-inner">
+            <span class="intro-emoji">🌸</span>
+            <div class="intro-title">chenyang 的个人网站</div>
+            <p class="intro-sub">欢迎来到我的小站 · 材料人的学习之旅</p>
+            <div class="intro-bar"><span></span></div>
+        </div>
+    </div>
 
     <!-- 下面是全屏飘落的樱花装饰层，不用管它 -->
     <div class="sakura-layer" id="sakuraLayer" aria-hidden="true"></div>
@@ -639,6 +885,7 @@
                     <a href="#about">关于我</a>
                     <a href="#education">教育经历</a>
                     <a href="#hobbies">我的爱好</a>
+                    <a href="#tools">材料工具</a>
                     <a href="#contact">联系我</a>
                 </div>
                 <button id="themeToggle" class="theme-btn" aria-label="切换深色模式">🌙</button>
@@ -765,6 +1012,127 @@
         </div>
     </section>
 
+    <!-- ============ 材料人工具箱：科研网站导航 + 单位换算 ============ -->
+    <section id="tools">
+        <div class="container">
+            <h2 class="section-title">🧪 材料人工具箱</h2>
+            <p class="section-sub">Materials Toolkit · 科研网站导航与常用换算</p>
+
+            <div class="link-grid">
+                <a class="link-card" href="https://www.cailiaoren.com" target="_blank" rel="noopener">
+                    <span class="link-emoji">📰</span>
+                    <div>
+                        <h3>材料人</h3>
+                        <p>材料领域资讯、课程与学习社区</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://materialsproject.org" target="_blank" rel="noopener">
+                    <span class="link-emoji">💎</span>
+                    <div>
+                        <h3>Materials Project</h3>
+                        <p>材料计算与性质数据库（免费注册）</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://www.crystallography.net/cod/" target="_blank" rel="noopener">
+                    <span class="link-emoji">🧊</span>
+                    <div>
+                        <h3>Crystallography Open Database</h3>
+                        <p>免费晶体结构数据库 COD</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://jp-minerals.org/vesta/en/" target="_blank" rel="noopener">
+                    <span class="link-emoji">📐</span>
+                    <div>
+                        <h3>VESTA</h3>
+                        <p>晶体结构可视化软件（免费）</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://www.x-mol.com" target="_blank" rel="noopener">
+                    <span class="link-emoji">📄</span>
+                    <div>
+                        <h3>X-MOL</h3>
+                        <p>文献检索、期刊资讯与学术动态</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://www.connectedpapers.com" target="_blank" rel="noopener">
+                    <span class="link-emoji">🕸️</span>
+                    <div>
+                        <h3>Connected Papers</h3>
+                        <p>用图谱理清文献之间的引用关系</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://www.cnki.net" target="_blank" rel="noopener">
+                    <span class="link-emoji">📚</span>
+                    <div>
+                        <h3>中国知网 CNKI</h3>
+                        <p>中文文献检索（校内一般有权限）</p>
+                    </div>
+                </a>
+                <a class="link-card" href="https://www.originlab.com" target="_blank" rel="noopener">
+                    <span class="link-emoji">📈</span>
+                    <div>
+                        <h3>Origin</h3>
+                        <p>科研绘图必备软件</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>⚡ 能量单位换算</h3>
+                    <p class="tool-desc">eV、kJ/mol、kcal/mol、波数 cm⁻¹、温度 K 互相换算，输入后自动计算</p>
+                    <div class="calc-row">
+                        <input id="energyInput" type="number" step="any" value="1">
+                        <select id="energyFrom">
+                            <option value="eV" selected>eV（电子伏）</option>
+                            <option value="kJ/mol">kJ/mol（千焦/摩尔）</option>
+                            <option value="kcal/mol">kcal/mol（千卡/摩尔）</option>
+                            <option value="cm⁻¹">cm⁻¹（波数）</option>
+                            <option value="K">K（开尔文）</option>
+                        </select>
+                        <span>→</span>
+                        <select id="energyTo">
+                            <option value="eV">eV（电子伏）</option>
+                            <option value="kJ/mol" selected>kJ/mol（千焦/摩尔）</option>
+                            <option value="kcal/mol">kcal/mol（千卡/摩尔）</option>
+                            <option value="cm⁻¹">cm⁻¹（波数）</option>
+                            <option value="K">K（开尔文）</option>
+                        </select>
+                    </div>
+                    <div class="calc-result" id="energyResult"></div>
+                    <button class="swap-btn" type="button" onclick="swapUnits('energy')">⇄ 交换方向</button>
+                </div>
+
+                <div class="tool-card">
+                    <h3>📏 长度单位换算</h3>
+                    <p class="tool-desc">晶格常数常用单位：pm、Å、nm、μm、mm、m，输入后自动计算</p>
+                    <div class="calc-row">
+                        <input id="lengthInput" type="number" step="any" value="1">
+                        <select id="lengthFrom">
+                            <option value="pm">pm（皮米）</option>
+                            <option value="Å">Å（埃）</option>
+                            <option value="nm" selected>nm（纳米）</option>
+                            <option value="μm">μm（微米）</option>
+                            <option value="mm">mm（毫米）</option>
+                            <option value="m">m（米）</option>
+                        </select>
+                        <span>→</span>
+                        <select id="lengthTo">
+                            <option value="pm">pm（皮米）</option>
+                            <option value="Å" selected>Å（埃）</option>
+                            <option value="nm">nm（纳米）</option>
+                            <option value="μm">μm（微米）</option>
+                            <option value="mm">mm（毫米）</option>
+                            <option value="m">m（米）</option>
+                        </select>
+                    </div>
+                    <div class="calc-result" id="lengthResult"></div>
+                    <button class="swap-btn" type="button" onclick="swapUnits('length')">⇄ 交换方向</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="alt">
         <div class="container">
             <h2 class="section-title">联系我</h2>
@@ -850,7 +1218,7 @@
         });
 
         // 4. 导航栏高亮当前栏目
-        const sectionIds = ["about", "education", "hobbies", "contact"];
+        const sectionIds = ["about", "education", "hobbies", "tools", "contact"];
         const navLinks = document.querySelectorAll(".nav-links a");
 
         const sectionObserver = new IntersectionObserver((entries) => {
@@ -886,6 +1254,66 @@
                 behavior: "smooth"
             });
         });
+
+        // 6. 材料人工具箱：单位换算
+        const energyUnits = {
+            "eV": 96.485,
+            "kJ/mol": 1,
+            "kcal/mol": 4.184,
+            "cm⁻¹": 0.011963,
+            "K": 0.0083145
+        };
+        const lengthUnits = {
+            "pm": 0.001,
+            "Å": 0.1,
+            "nm": 1,
+            "μm": 1000,
+            "mm": 1000000,
+            "m": 1000000000
+        };
+
+        function updateResult(prefix, units) {
+            const input = document.getElementById(prefix + "Input");
+            const fromSel = document.getElementById(prefix + "From");
+            const toSel = document.getElementById(prefix + "To");
+            const resultEl = document.getElementById(prefix + "Result");
+            const value = parseFloat(input.value);
+            if (input.value === "" || isNaN(value)) {
+                resultEl.textContent = "请输入数值";
+                return;
+            }
+            const result = value * units[fromSel.value] / units[toSel.value];
+            resultEl.innerHTML = value + " " + fromSel.value + " = <strong>" +
+                Number(result.toPrecision(8)).toString() + "</strong> " + toSel.value;
+        }
+
+        function swapUnits(prefix) {
+            const fromSel = document.getElementById(prefix + "From");
+            const toSel = document.getElementById(prefix + "To");
+            const temp = fromSel.value;
+            fromSel.value = toSel.value;
+            toSel.value = temp;
+            const units = prefix === "energy" ? energyUnits : lengthUnits;
+            updateResult(prefix, units);
+        }
+
+        ["energy", "length"].forEach((prefix) => {
+            const units = prefix === "energy" ? energyUnits : lengthUnits;
+            document.getElementById(prefix + "Input").addEventListener("input", () => updateResult(prefix, units));
+            document.getElementById(prefix + "From").addEventListener("change", () => updateResult(prefix, units));
+            document.getElementById(prefix + "To").addEventListener("change", () => updateResult(prefix, units));
+            updateResult(prefix, units);
+        });
+
+        // 7. 开场动画：点击任意位置立即进入网站
+        const intro = document.getElementById("intro");
+        if (intro) {
+            intro.addEventListener("click", () => {
+                intro.style.opacity = "0";
+                intro.style.visibility = "hidden";
+                intro.style.pointerEvents = "none";
+            });
+        }
     </script>
 
 </body>
